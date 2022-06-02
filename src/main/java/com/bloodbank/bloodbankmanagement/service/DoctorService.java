@@ -19,33 +19,14 @@ public class DoctorService {
     @Autowired
     private DoctorRepository doctorRepository;
 
-    /*@Autowired
-    public DoctorService(DoctorRepository doctorRepository) {
-        this.doctorRepository = doctorRepository;
-    }*/
+    
     @Autowired
     private ModelMapper modelMapper;
 
 
 
 
-/*   private DoctorDto fromEntity(Doctor doctor){
-        modelMapper.getConfiguration()
-                .setMatchingStrategy(MatchingStrategies.LOOSE);
-        DoctorDto  doctorDto = new DoctorDto();
-        doctorDto = modelMapper.map(doctor, DoctorDto.class);
-        return doctorDto;
-    }*/
 
-
-/*    private Doctor fromDto(DoctorDto doctorDto){
-        modelMapper.getConfiguration()
-                .setMatchingStrategy(MatchingStrategies.LOOSE);
-        Doctor  doctor = new Doctor();
-        doctor = modelMapper.map(doctorDto, Doctor.class);
-        return doctor;
-    }*/
-   /* ModelMapper used instead of Builder to map Entity to Dto and vice versa */
 
     public List<DoctorDto> findAll(){
         return doctorRepository.findAll()
