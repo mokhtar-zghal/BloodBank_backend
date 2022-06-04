@@ -19,9 +19,7 @@ public class DoctorService {
     @Autowired
     private DoctorRepository doctorRepository;
 
-    
-    @Autowired
-    private ModelMapper modelMapper;
+
 
 
 
@@ -38,8 +36,8 @@ public class DoctorService {
         doctorRepository.deleteAll();
         return ;
     }
-    public Optional<Doctor> findById(Integer id){
-        return doctorRepository.findById(id);
+    public Optional<DoctorDto> findById(Integer id){
+        return doctorRepository.findById(id).map(DoctorDto::fromEntity);
     }
     public void save(DoctorDto dto){
         Doctor docteur=DoctorDto.fromDto(dto);

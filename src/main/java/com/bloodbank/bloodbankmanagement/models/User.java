@@ -12,7 +12,6 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-//@Table(name = "Doctor")
 public class User {
         @Id
         @Column(name = "id")

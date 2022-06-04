@@ -19,27 +19,28 @@ import java.util.Optional;
         }
 
 
-        @PostMapping("/request")
+        @PostMapping("/doctor/save")
         public void save(@RequestBody DoctorDto dto){
             doctorService.save(dto);
 
         }
-        @GetMapping("/doctors")
+        @GetMapping("/doctor/find")
+        public Optional<DoctorDto> findById(@RequestParam(required=true,defaultValue="8") Integer number){
+            return doctorService.findById(number);
+        }
+        @GetMapping("/doctor/all")
         public List<DoctorDto> findAll(){
             return doctorService.findAll();
         }
+        @RequestMapping("/delete")
+        public void delete(){
+            doctorService.delete();
+        }
 
- /*       @GetMapping("/doctors")
-        public Optional<Doctor> findById(@RequestParam(required=true,defaultValue="1") Integer num){
-            return doctorService.findById(num);
-        }*/
    //     @RequestMapping("/")
      //   public Doctor doctorTest(@RequestParam(value = "name", defaultValue = "Mohamed") String name){
        //     return new Doctor(11,111,"amir","zghal","hedi chaker","az@gmail.com","11234","sfax");
     /*    return new Doctor("sfax",15,1113,name,"zghal","hedi chaker","zm@gmail.com","mokhtarz2000");}*/
     //}
-/*    @RequestMapping
-    public void delete(){
-        doctorService.delete();
-    }*/
+
 }

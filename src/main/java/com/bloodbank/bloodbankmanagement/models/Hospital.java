@@ -1,11 +1,18 @@
 package com.bloodbank.bloodbankmanagement.models;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "Hospital")
 public class Hospital {
@@ -18,5 +25,6 @@ public class Hospital {
     private String Location;
     @Column(name = "phoneNumber")
     private int phoneNumber;
-
+    @OneToMany(mappedBy = "hospital")
+    private List<BloodBag> bloodBag;
 }
